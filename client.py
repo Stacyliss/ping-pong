@@ -43,6 +43,23 @@ font_main = font.Font(None, 36)
 # --- ЗОБРАЖЕННЯ ----
 bg_img = image.load("image/backgrounds/game_bg.jpg")
 bg_img = transform.scale(bg_img, (800,600))
+
+def load_image_safe(path, size=None):
+    try:
+        img = image.load(path)
+        if size:
+            img = transform.scale(img, size)
+        return img.convert_alpha()  # convert_alpha() для прозорості та швидкості
+    except:
+        print(f" Не вдалося завантажити {path}")
+        return None
+
+#
+
+
+
+
+
 # --- ЗВУКИ ---
 
 # --- ГРА ---
